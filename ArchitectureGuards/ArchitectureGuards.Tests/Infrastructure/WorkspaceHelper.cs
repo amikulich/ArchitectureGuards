@@ -27,7 +27,9 @@ namespace ArchitectureGuards.Tests.Infrastructure
 
         private static string GetSolutionFilePath(string solutionName)
         {
-            string repositoryPathRoot = "";
+            string testAssemblyPath = Assembly.GetExecutingAssembly().Location;
+            string repositoryPathRoot = testAssemblyPath.Substring(0, testAssemblyPath.IndexOf("\\ArchitectureGuards", StringComparison.Ordinal));
+
 
             return Directory.GetFiles(repositoryPathRoot, $"{TrailingSolutionFileExtension.Replace(solutionName, string.Empty)}.sln", SearchOption.AllDirectories).SingleOrDefault();
         }
