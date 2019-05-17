@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyGraph\DependencyGraphTests.cs" />
     <Compile Include="Infrastructure\WorkspaceHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RacingClubTests\RacingApiReferenceTests.cs" />
+    <Compile Include="RacingClub\RacingApiReferenceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

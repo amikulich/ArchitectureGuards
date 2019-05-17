@@ -1,9 +1,13 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
+
 using ArchitectureGuards.Tests.Infrastructure;
+
 using Microsoft.CodeAnalysis;
+
 using NUnit.Framework;
 
-namespace ArchitectureGuards.Tests.RacingClubTests
+namespace ArchitectureGuards.Tests.RacingClub
 {
     [TestFixture]
     public class RacingApiReferenceTests
@@ -11,9 +15,9 @@ namespace ArchitectureGuards.Tests.RacingClubTests
         Workspace _workspace;
 
         [OneTimeSetUp]
-        public void SetUp()
+        public async Task SetUp()
         {
-            _workspace = WorkspaceHelper.Load("RacingClub.sln");
+            _workspace = await WorkspaceHelper.Load("RacingClub.sln");
         }
 
         [OneTimeTearDown]
