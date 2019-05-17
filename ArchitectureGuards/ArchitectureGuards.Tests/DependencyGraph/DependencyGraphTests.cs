@@ -29,7 +29,7 @@ namespace ArchitectureGuards.Tests.DependencyGraph
         }
 
         [Test]
-        public async Task DepencyGraph_WhenADocumentContainsOnlyOneClassOrInterface_IsBuildCorrectly()
+        public async Task DependencyGraph_WhenADocumentContainsOnlyOneClassOrInterface_IsBuildCorrectly()
         {
             var dependencies = new Dictionary<string, List<string>>(); 
 
