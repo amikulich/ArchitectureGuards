@@ -22,7 +22,10 @@ namespace ArchitectureGuards.Tests.Infrastructure
 
             await workspace.OpenSolutionAsync(solutionFilePath);
 
-            Assert.That(workspace.CurrentSolution.Projects.All(p => p.HasDocuments), $"The following projects have been loaded incorrectly: {string.Join(Environment.NewLine, workspace.CurrentSolution.Projects.Where(p => !p.HasDocuments).Select(p => p.Name))} {Environment.NewLine} See workspace.Diagnostics for details. ");
+            var notLoadedProjects = workspace.CurrentSolution.Projects
+                .Where(p => !p.HasDocuments).Select(p => p.Name).ToList();
+            Assert.That(notLoadedProjects.Count == 0, 
+                $"The following projects have been loaded incorrectly: {string.Join(Environment.NewLine, notLoadedProjects)} {Environment.NewLine} See workspace.Diagnostics for details. ");
 
             return workspace;
         }

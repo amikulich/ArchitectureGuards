@@ -277,13 +277,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RacingClub.DI\RacingClub.DI.csproj">
-      <Project>{783fb6b5-bddf-4b9b-852d-83d84fdedb7e}</Project>
-      <Name>RacingClub.DI</Name>
+    <ProjectReference Include="..\Finance.Core\Finance.Core.csproj">
+      <Project>{0a68187c-0f73-4615-8513-e4dcb60a24c5}</Project>
+      <Name>Finance.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RacingClub.Services\RacingClub.Services.csproj">
-      <Project>{b598c07d-6918-4b41-9e69-b31c029c78bf}</Project>
-      <Name>RacingClub.Services</Name>
+    <ProjectReference Include="..\Tech.Core\Tech.Core.csproj">
+      <Project>{5e9775e5-5f50-4c4e-9637-714061513e12}</Project>
+      <Name>Tech.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

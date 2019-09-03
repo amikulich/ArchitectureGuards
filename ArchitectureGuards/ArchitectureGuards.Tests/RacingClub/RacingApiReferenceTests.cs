@@ -20,17 +20,11 @@ namespace ArchitectureGuards.Tests.RacingClub
             _workspace = await WorkspaceHelper.Load("RacingClub.sln");
         }
 
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            _workspace.Dispose();
-        }
-
         [Test]
         public void DomainModel_CannotReferenceOtherLibraries()
         {
             var domainModelProjects =
-                _workspace.CurrentSolution.Projects.Where(p => p.Name.EndsWith(".DomainModel")).ToList();
+                _workspace.CurrentSolution.Projects.Where(p => p.Name.EndsWith(".Domain")).ToList();
 
             foreach (var project in domainModelProjects)
             {
@@ -46,7 +40,7 @@ namespace ArchitectureGuards.Tests.RacingClub
 
         [Test]
         [TestCase(".DataAccess")]
-        [TestCase(".DomainModel")]
+        [TestCase(".Domain")]
         public void ApiProject_DoesNotReferenceTheseProjects(string mask)
         {
             const string apiProjectName = "RacingClub.Api";
@@ -72,6 +66,12 @@ namespace ArchitectureGuards.Tests.RacingClub
                     }
                 }
             }
+        }
+
+        [OneTimeTearDown]
+        public void TearDown()
+        {
+            _workspace.Dispose();
         }
     }
 }
